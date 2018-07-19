@@ -7,7 +7,22 @@ namespace CaesarCipher
     {
         public static string Rotate(string text, int shiftKey)
         {
-            throw new NotImplementedException("You need to implement this function.");
+            string output = string.Empty;  
+  
+            foreach(char replace in text)  
+            output += rot(replace, shiftKey);  
+  
+            return output; 
         }
+        public static char rot(char replace, int shiftKey) {  
+            if (!char.IsLetter(replace)) {  
+  
+                return replace;  
+            }  
+            char UpperorLower = char.IsUpper(replace) ? 'A' : 'a';  
+            return (char)((((replace + shiftKey) - UpperorLower) % 26) + UpperorLower);  
+  
+  
+        }  
     }
 }
